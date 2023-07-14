@@ -80,10 +80,13 @@ const navigate = (e) => {
 
 const registerNavLinks = () => {
   nav.addEventListener("click", (e) => {
-    e.preventDefault();
-    const { href } = e.target;
-    window.history.pushState({}, "", href);
-    navigate(e);
+    if (e.target.tagName === "A") {
+      navigate(e);
+    // e.preventDefault();
+    // const { href } = e.target;
+    // window.history.pushState({}, "", href);
+    // navigate(e);
+    }
   });
 };
 
