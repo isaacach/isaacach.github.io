@@ -104,7 +104,6 @@ const renderInitialPage = () => {
 
 (function bootup() {
   registerNavLinks();
-  registerBrowserBackAndForth();
   renderInitialPage();
 })();
 
