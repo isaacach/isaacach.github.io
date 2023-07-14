@@ -69,33 +69,26 @@ const nav = document.querySelector("nav");
 const renderContent = (route) => (root.innerHTML = routes[route].content);
 
 const navigate = (e) => {
-  e.preventDefault();
-  const href = e.target.getAttribute("href");
-  window.history.pushState({}, "", href);
-  renderContent(href);
-  // const route = e.target.pathname;
-  // window.history.pushState({}, "", route);
-  // renderContent(route);
+  const route = e.target.pathname;
+  window.history.pushState({}, "", route);
+  renderContent(route);
 };
 
 const registerNavLinks = () => {
   nav.addEventListener("click", (e) => {
-    if (e.target.tagName === "A") {
-      navigate(e);
-    // e.preventDefault();
-    // const { href } = e.target;
-    // window.history.pushState({}, "", href);
-    // navigate(e);
-    }
+    e.preventDefault();
+    const { href } = e.target;
+    window.history.pushState({}, "", href);
+    navigate(e);
   });
 };
 
-// const registerBrowserBackAndForth = () => {
-//   window.onpopstate = function (e) {
-//     const route = window.location.pathname;
-//     renderContent(route);
-//   };
-// };
+const registerBrowserBackAndForth = () => {
+  window.onpopstate = function (e) {
+    const route = window.location.pathname;
+    renderContent(route);
+  };
+};
 
 const renderInitialPage = () => {
   const route = window.location.pathname;
@@ -104,6 +97,7 @@ const renderInitialPage = () => {
 
 (function bootup() {
   registerNavLinks();
+  registerBrowserBackAndForth();
   renderInitialPage();
 })();
 
