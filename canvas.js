@@ -1,9 +1,10 @@
 let w, h, loopId, id, canvas, ctx, particles;
+const ratio = Math.ceil(window.devicePixelRatio);
 
 let options = {
   particleColor: "#f96d00",
   lineColor: "rgb(113, 121, 126)",
-  particleAmount: Math.floor(window.innerWidth / 10),
+  particleAmount: Math.floor(window.innerWidth * ratio / 10),
   defaultRadius: 3,
   variantRadius: 1,
   defaultSpeed: 0.18,
@@ -14,8 +15,25 @@ let options = {
 canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
 
-w = canvas.width = window.innerWidth;
-h = canvas.height = window.innerHeight;
+
+w = canvas.width = window.innerWidth * ratio;
+h = canvas.height = window.innerHeight * ratio;
+
+canvas.style.width = `${window.innerWidth}px`;
+canvas.style.height = `${window.innerHeight}px`;
+
+function createCanvas(width, height, set2dTransform = true) {
+  const ratio = Math.ceil(window.devicePixelRatio);
+  const canvas = document.createElement('canvas');
+  canvas.width = width * ratio;
+  canvas.height = height * ratio;
+  canvas.style.width = `${width}px`;
+  canvas.style.height = `${height}px`;
+  if (set2dTransform) {
+    canvas.getContext('2d').setTransform(ratio, 0, 0, ratio, 0, 0);
+  }
+  return canvas;
+}
 
 window.addEventListener("resize", () => {
   if (window.innerWidth != w) {
