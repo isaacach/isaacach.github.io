@@ -6,32 +6,113 @@
   <title>Isaac Achenbach</title>
   <link rel="stylesheet" href="resets.css">
   <link rel="stylesheet" href="styles.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
+  <canvas id="canvas"></canvas>
   <nav>
-    <h1><a href="/">isaac</a></h1>
     <ul>
-      <li class="about"><a href="/about">about</a></li>
-      <li class="contact"><a href="/contact">contact me</a></li>
+      <li>
+        <img class="logo" src="images/i-low-resolution-logo-color-on-transparent-background (1).png" alt="logo">
+      </li>
+    </ul>
+    <ul>
+      <li class="home">home</li>
+      <li class="about">about</li>
       <li class="skills">skills</li>
+      <li class="projects">projects</li>
+      <li class="contact">contact me</li>
     </ul>
   </nav>
-  <div class="container" id="root">
+  <div class="intro">
+    <p>Hello, I'm <span>isaac</span>.</p>
+    <p>I'm a full-stack web developer.</p>
   </div>
-  <div class="overlay">
-    <div class="paint"></div>
-    <div class="paint"></div>
-    <div class="paint"></div>
-    <div class="paint"></div>
-    <div class="paint"></div>
-    <div class="paint"></div>
-    <div class="paint"></div>
-    <div class="paint"></div>
-    <div class="paint"></div>
-    <div class="paint"></div>
-    <div class="paint"></div>
-    <p>Isaac Achenbach</p>
+  <div class="intro-arrow">
+    <p>scroll down</p>
+    <img src="images/MingcuteLargeArrowUpLine.svg" alt="arrow">
   </div>
+  <div class="container-about">
+    <h2><span>//</span> About me</h2>
+    <div class="me">
+      <div class="img-wrapper">
+        <img src="images/me.jpg" alt="me">
+      </div>
+      <p>I'm a full-stack web developer with a passion for creating beautiful, responsive, and secure websites.  
+        I have just finished a 5 month intensive bootcamp at Codeup where I learned a good portion of my skills.
+        I am a lover of all things outdoors and I enjoy spending my free time hiking, camping, and fishing.  I am also 
+        a coffee and craft beer fanatic.  I am currently looking for a job as a web developer and I am excited to see 
+        where my career takes me.<br><span>Let's make amazing things happen!</span></p>
+    </div>
+  </div>
+  <div class="container-skills">
+    <h2><span>//</span> Skills</h2>
+    <div class="row">
+      <div class="column left">
+        <div class="skill">
+          <div class="skill-img-wrapper">
+            <img class="rose" src="images/ion-rose.svg" alt="rose">
+            <p>Dynamic</p>
+          </div>
+          <p class="skill-caption">I build websites with dynamic functionality and interactivity to create a more engaging experience for the user and make the website come to life.</p>
+        </div>
+        <div class="skill">
+          <div class="skill-img-wrapper">
+            <img src="images/ion-resize.svg" alt="resize arrows">
+            <p>Responsive</p>
+          </div>
+          <p class="skill-caption">I build websites with meticulously implemented responsive web design techniques to allow it to look great on any device.</p>
+        </div>
+        <div class="skill">
+          <div class="skill-img-wrapper">
+            <img class="lock" src="images/ion-lock-closed.svg" alt="closed lock">
+            <p>Secure</p>
+          </div>
+          <p class="skill-caption">Crafting secure websites with precision and care. Safeguarding online experiences, one line of code at a time</p>
+        </div>
+      </div>
+      <div class="column right">
+        <div class="skills">
+          <h3>Front-end:</h3>
+          <p>HTML5, CSS3, javascript, jQuery, Bootstrap</p>
+          <p>I have experience with React, Svelte, Tailwind </p>
+        </div>
+        <div class="skills">
+          <h3>Back-end:</h3>
+          <p>Java SE, Java EE, Spring Boot, Thymeleaf, MySQL</p>
+          <p>I have experience with Python, Node.js, Express.js</p>
+        </div>
+        <div class="skills">
+          <h3>Dev Tools:</h3>
+          <p>Git, GitHub, IntelliJ, VS Code, Postman, AWS Deployment</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-projects">
+    <h2><span>//</span> Projects</h2>
+  </div>
+  <div class="container-contact">
+    <h2><span>//</span> Contact me</h2>
+    <div class="contact">
+      <h3>Want to work with me or give feedback?</h3>
+      <form id="contact-form">
+        <input type="hidden" name="contact_number">
+        <input id="name" name="name" placeholder="your name">
+        <input id="email" name="email" placeholder="your email">
+        <textarea id="subject" name="subject" placeholder="write your message" style="height:200px"></textarea>
+        <button>Submit</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <div class="footer-icon-wrapper">
+      <img src="images/MingcuteLargeArrowUpLine.svg" alt="logo">
+    </div>
+    <p>© 2023 Isaac Achenbach</p>
+  </footer>
 <script src="index.js"></script>
+<script src="canvas.js"></script>
+<script src="email.js" type="module"></script>
 </body>
 </html>

@@ -1,105 +1,85 @@
 let overlay = document.querySelector('.overlay');
 let container = document.querySelector('.container');
+let home = document.querySelector('.home');
+let about = document.querySelector('.about');
+let aboutEl = document.querySelector('.container-about');
+let contact = document.querySelector('.contact');
+let contactEl = document.querySelector('.container-contact');
+let skills = document.querySelector('.skills');
+let skillsEl = document.querySelector('.container-skills');
+let projects = document.querySelector('.projects');
+let projectsEl = document.querySelector('.container-projects');
+let toTop = document.querySelector('.footer-icon-wrapper');
+let meBtn = document.querySelector('.me p span');
+let cnv = document.querySelector('#canvas');
+let logo = document.querySelector('.logo');
 
-setTimeout(() => {
-  overlay.style.display = 'none';
-}
-, 5400);
-
-setTimeout(() => {
-  container.style.display = 'flex';
-}
-, 4000);
-
-const home = `
-<div class="intro">
-  <p>hi I'm isaac,</p>
-  <p>I'm a <span>web developer</span></p>
-  </div>
-  <div class="wrapper">
-  <div class="shape"></div>
-  <div class="shape"></div>
-  <div class="shape"></div>
-  <div class="shape"></div>
-  <div class="shape"></div>
-  <p>My Projects</p>
-</div>
-`;
-
-const about = `
-<div class="intro">
-  <p>hi I'm isaac,</p>
-  <p>I'm a <span>web developer</span></p>
-</div>
-`;
-
-const contact = `
-<div class="contact">
-<form action="/action_page.php">
-    <label for="email">First Name</label>
-    <input id="email" name="email" placeholder="Your name..">
-
-    <label for="subject">Subject</label>
-    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
-
-    <input type="submit" value="Submit">
-  </form>
-</div>
-
-`;
-
-const routes = {
-  "/": {
-    linkLabel: "Home",
-    content: home
-  },
-  "/about": {
-    linkLabel: "About",
-    content: about
-  },
-  "/contact": {
-    linkLabel: "Contact",
-    content: contact
-  }
-};
-
-const root = document.querySelector("#root");
-const nav = document.querySelector("nav");
-
-const renderContent = (route) => (root.innerHTML = routes[route].content);
-
-const navigate = (e) => {
-  const route = e.target.pathname;
-  window.history.pushState({}, "", route);
-  renderContent(route);
-};
-
-const registerNavLinks = () => {
-  nav.addEventListener("click", (e) => {
-    e.preventDefault();
-    const { href } = e.target;
-    window.history.pushState({}, "", href);
-    navigate(e);
+logo.addEventListener('click', () => {
+  cnv.scrollIntoView({
+    behavior: "smooth"
   });
+});
+
+meBtn.addEventListener('click', () => {
+  contactEl.scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+
+home.addEventListener('click', () => {
+  cnv.scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+about.addEventListener('click', () => {
+  aboutEl.scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+toTop.addEventListener('click', () => {
+  cnv.scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+contact.addEventListener('click', () => {
+  contactEl.scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+skills.addEventListener('click', () => {
+  skillsEl.scrollIntoView({
+    behavior: "smooth"
+  });
+});
+
+projects.addEventListener('click', () => {
+  projectsEl.scrollIntoView({
+    behavior: "smooth"
+  });
+});
+  
+const opt = {
+  root: null,
+  rootMargin: "0px",
+  threshold: 0.3,
 };
 
-const registerBrowserBackAndForth = () => {
-  window.onpopstate = function (e) {
-    const route = window.location.pathname;
-    renderContent(route);
-  };
-};
+const callback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !entry.target.classList.contains("animated")) {
+      entry.target.classList.add("animated");
+    }
+  })
+}
 
-const renderInitialPage = () => {
-  const route = window.location.pathname;
-  renderContent(route);
-};
+const observer = new IntersectionObserver(callback, opt);
 
-(function bootup() {
-  registerNavLinks();
-  registerBrowserBackAndForth();
-  renderInitialPage();
-})();
+const animatedElements = document.querySelectorAll(".animate");
 
-
+animatedElements.forEach(element => observer.observe(element));
 
