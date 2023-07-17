@@ -53,6 +53,7 @@ nav ul:first-child {
 
 .logo {
   width: 80px;
+  cursor: pointer;
 }
 
 
@@ -203,6 +204,7 @@ nav li:hover {
   flex-direction: column;
   align-items: center;
   width: 100vw;
+  height: 100vh;
   background-color: #222831;
 }
 
@@ -228,7 +230,6 @@ nav li:hover {
   align-items: center;
   width: 100%;
   height: 100%;
-  margin-bottom: 100px;
 }
 
 .column {
@@ -238,12 +239,14 @@ nav li:hover {
   height: 100%;
 }
 
-.column.left {
+.left {
   justify-content: space-around;
 }
 
-.column.right {
-  justify-content: space-around;
+.right {
+  height: 100%;
+  justify-content: center;
+  gap: 80px;
   color: #d2ebcd;
 }
 
