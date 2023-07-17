@@ -18,9 +18,11 @@ w = canvas.width = window.innerWidth;
 h = canvas.height = window.innerHeight;
 
 window.addEventListener("resize", () => {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-  location.reload();
+  if (window.innerWidth != w) {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+    location.reload();
+  }   
 });
 
 document.addEventListener("DOMContentLoaded", init);
