@@ -486,6 +486,9 @@ footer {
 }
 
 @media screen and (max-width: 500px) {
+  nav ul:last-child {
+    gap: 0;
+  }
   .intro p:first-child {
     font-size: 2rem;
   }
@@ -521,6 +524,10 @@ footer {
 
   .me p span {
     font-size: 1.3rem;
+  }
+
+  .container-skills {
+    height: unset;
   }
 
   .container-skills .row {
