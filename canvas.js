@@ -2,11 +2,11 @@ let w, h, loopId, id, canvas, ctx, particles;
 const ratio = Math.ceil(window.devicePixelRatio);
 
 let options = {
-  particleColor: "#f96d00",
-  lineColor: "rgb(113, 121, 126)",
+  particleColor: "#81ffff",
+  lineColor: "rgb(232, 232, 232)",
   particleAmount: Math.floor(window.innerWidth * ratio / 10),
-  defaultRadius: 3,
-  variantRadius: 1,
+  defaultRadius: 1,
+  variantRadius: 4,
   defaultSpeed: 0.18,
   variantSpeed: 0,
   linkRadius: 160,
@@ -89,7 +89,7 @@ function drawLine() {
 function linkPoints(point, hubs) {
   for (let i = 0; i < hubs.length; i++) {
     let distance = checkDistance(point.x, point.y, hubs[i].x, hubs[i].y);
-    let opacity = 1 - distance / options.linkRadius;
+    let opacity = .6 - distance / options.linkRadius;
     if (opacity > 0) {
       ctx.lineWidth = 0.5;
       ctx.strokeStyle =

@@ -1,6 +1,5 @@
 let overlay = document.querySelector('.overlay');
 let container = document.querySelector('.container');
-let home = document.querySelector('.home');
 let about = document.querySelector('.about');
 let aboutEl = document.querySelector('.container-about');
 let contact = document.querySelector('.contact');
@@ -35,13 +34,6 @@ logo.addEventListener('click', () => {
 
 meBtn.addEventListener('click', () => {
   contactEl.scrollIntoView({
-    behavior: "smooth"
-  });
-});
-
-
-home.addEventListener('click', () => {
-  cnv.scrollIntoView({
     behavior: "smooth"
   });
 });
@@ -84,8 +76,9 @@ const opt = {
 
 const callback = (entries, observer) => {
   entries.forEach(entry => {
-    if (entry.isIntersecting && !entry.target.classList.contains("animated")) {
-      entry.target.classList.add("animated");
+    if (entry.isIntersecting && !entry.target.classList.contains("fade-up")) {
+      entry.target.classList.add("fade-up");
+      entry.target.classList.remove("disappear");
     }
   })
 }
