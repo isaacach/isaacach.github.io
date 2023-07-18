@@ -19,8 +19,8 @@ ctx = canvas.getContext("2d");
 w = canvas.width = window.innerWidth * ratio;
 h = canvas.height = window.innerHeight * ratio;
 
-canvas.style.width = `${window.innerWidth}px`;
-canvas.style.height = `${window.innerHeight}px`;
+// canvas.style.width = `${window.innerWidth}px`;
+// canvas.style.height = `${window.innerHeight}px`;
 
 function createCanvas(width, height, set2dTransform = true) {
   const ratio = Math.ceil(window.devicePixelRatio);
@@ -36,9 +36,7 @@ function createCanvas(width, height, set2dTransform = true) {
 }
 
 window.addEventListener("resize", () => {
-  if (window.innerWidth != w) {
-    w = canvas.width = window.innerWidth;
-    h = canvas.height = window.innerHeight;
+  if (window.innerWidth * ratio != w) {
     location.reload();
   }   
 });

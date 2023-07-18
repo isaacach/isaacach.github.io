@@ -14,6 +14,19 @@ let meBtn = document.querySelector('.me p span');
 let cnv = document.querySelector('#canvas');
 let logo = document.querySelector('.logo');
 
+let friesMenu = document.querySelector('.fries-menu');
+let fryOne = document.querySelector('.fries-menu-line:nth-child(1)');
+let fryTwo = document.querySelector('.fries-menu-line:nth-child(2)');
+let fryThree = document.querySelector('.fries-menu-line:nth-child(3)');
+let navMenu = document.querySelector('nav ul:last-child');
+
+friesMenu.addEventListener('click', () => {
+  fryOne.classList.toggle('rotate-1');
+  fryTwo.classList.toggle('disappear');
+  fryThree.classList.toggle('rotate-2');
+  navMenu.classList.toggle('show');
+});
+
 logo.addEventListener('click', () => {
   cnv.scrollIntoView({
     behavior: "smooth"
