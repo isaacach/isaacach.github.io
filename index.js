@@ -71,7 +71,7 @@ projects.addEventListener('click', () => {
 const opt = {
   root: null,
   rootMargin: "0px",
-  threshold: 0.3,
+  threshold: 0.1,
 };
 
 const fadeUpCallback = (entries, observer) => {
@@ -92,27 +92,18 @@ const highlightCallback = (entries, observer) => {
     if (entry.isIntersecting) {
       if (entry.target.classList.contains("container-about")) {
         contact.classList.remove("highlight");
-        skills.classList.remove("highlight");
         projects.classList.remove("highlight");
         about.classList.add("highlight");
-      } else if (entry.target.classList.contains("container-skills")) {
-        about.classList.remove("highlight");
-        contact.classList.remove("highlight");
-        projects.classList.remove("highlight");
-        skills.classList.add("highlight");
       } else if (entry.target.classList.contains("container-projects")) {
         about.classList.remove("highlight");
-        skills.classList.remove("highlight");
         contact.classList.remove("highlight");
         projects.classList.add("highlight");
       } else if (entry.target.classList.contains("container-contact")) {
         about.classList.remove("highlight");
-        skills.classList.remove("highlight");
         projects.classList.remove("highlight");
         contact.classList.add("highlight");
       } else if (entry.target.classList.contains("container-home")) {
         about.classList.remove("highlight");
-        skills.classList.remove("highlight");
         projects.classList.remove("highlight");
         contact.classList.remove("highlight");
       }
