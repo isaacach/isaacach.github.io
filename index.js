@@ -74,7 +74,7 @@ const opt = {
   threshold: 0.3,
 };
 
-const callback = (entries, observer) => {
+const fadeUpCallback = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting && !entry.target.classList.contains("fade-up")) {
       entry.target.classList.add("fade-up");
@@ -83,9 +83,47 @@ const callback = (entries, observer) => {
   })
 }
 
-const observer = new IntersectionObserver(callback, opt);
-
+const observerOne = new IntersectionObserver(fadeUpCallback, opt);
 const animatedElements = document.querySelectorAll(".animate");
+animatedElements.forEach(element => observerOne.observe(element));
 
-animatedElements.forEach(element => observer.observe(element));
+const highlightCallback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      if (entry.target.classList.contains("container-about")) {
+        contact.classList.remove("highlight");
+        skills.classList.remove("highlight");
+        projects.classList.remove("highlight");
+        about.classList.add("highlight");
+      } else if (entry.target.classList.contains("container-skills")) {
+        about.classList.remove("highlight");
+        contact.classList.remove("highlight");
+        projects.classList.remove("highlight");
+        skills.classList.add("highlight");
+      } else if (entry.target.classList.contains("container-projects")) {
+        about.classList.remove("highlight");
+        skills.classList.remove("highlight");
+        contact.classList.remove("highlight");
+        projects.classList.add("highlight");
+      } else if (entry.target.classList.contains("container-contact")) {
+        about.classList.remove("highlight");
+        skills.classList.remove("highlight");
+        projects.classList.remove("highlight");
+        contact.classList.add("highlight");
+      } else if (entry.target.classList.contains("container-home")) {
+        about.classList.remove("highlight");
+        skills.classList.remove("highlight");
+        projects.classList.remove("highlight");
+        contact.classList.remove("highlight");
+      }
+    }
+  })
+}
+
+const observerTwo = new IntersectionObserver(highlightCallback, opt);
+const highlightContainers =  document.querySelectorAll(".hl");
+highlightContainers.forEach(element => observerTwo.observe(element));
+
+
+
 

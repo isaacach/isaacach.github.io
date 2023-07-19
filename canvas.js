@@ -49,6 +49,7 @@ function init() {
 }
 
 let rgb = options.lineColor.match(/\d+/g);
+mouse = {x:0,y:0};
 
 function initialiseElements() {
   particles = [];
@@ -145,5 +146,7 @@ Particle = function () {
     ctx.closePath();
     ctx.fillStyle = _this.color;
     ctx.fill();
-  };
+    }
+
+  
 };
