@@ -347,18 +347,18 @@ nav ul:last-child li:hover {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, 500px);
-  gap: 60px;
+  gap: 20px;
   width: 80%;
-  justify-content: space-evenly;
+  justify-content: center;
   justify-items: center;
-  align-content: space-evenly;
+  align-content: center;
   align-items: center;
 }
 
 .grid-item {
   position: relative;
-  height: 280px;
-  width: 550px;
+  height: 260px;
+  width: 500px;
   overflow: hidden;
 }
 
@@ -423,7 +423,7 @@ nav ul:last-child li:hover {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  height: 70vh;
   background-color: var(--bg-color2);
 }
 
