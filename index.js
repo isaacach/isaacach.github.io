@@ -68,7 +68,7 @@ projects.addEventListener('click', () => {
   });
 });
   
-const opt = {
+const optionsOne = {
   root: null,
   rootMargin: "0px",
   threshold: 0.5,
@@ -83,7 +83,7 @@ const fadeUpCallback = (entries, observer) => {
   })
 }
 
-const observerOne = new IntersectionObserver(fadeUpCallback, opt);
+const observerOne = new IntersectionObserver(fadeUpCallback, optionsOne);
 const animatedElements = document.querySelectorAll(".animate");
 animatedElements.forEach(element => observerOne.observe(element));
 
@@ -111,7 +111,7 @@ const highlightCallback = (entries, observer) => {
   })
 }
 
-const observerTwo = new IntersectionObserver(highlightCallback, opt);
+const observerTwo = new IntersectionObserver(highlightCallback, optionsOne);
 const highlightContainers =  document.querySelectorAll(".hl");
 highlightContainers.forEach(element => observerTwo.observe(element));
 

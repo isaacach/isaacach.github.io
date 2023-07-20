@@ -6,7 +6,7 @@ let options = {
   lineColor: "rgb(232, 232, 232)",
   particleAmount: Math.floor(window.innerWidth * ratio / 10),
   defaultRadius: 1,
-  variantRadius: 4,
+  variantRadius: 5,
   defaultSpeed: 0.18,
   variantSpeed: 0,
   linkRadius: 160,
