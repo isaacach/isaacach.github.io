@@ -65,43 +65,44 @@
     </nav>
 
     <div class="container-about hl">
-      <h2><span>//</span> About me</h2>
+      <h2 class="sr "><span>//</span> About me</h2>
       <div class="row me">
         <div class="column left">
-          <div class="img-wrapper">
+          <div class="img-wrapper sr">
             <img src="images/me.jpg" alt="me" />
           </div>
-          <div class="icon-wrapper">
+          <div class="icon-wrapper sr ">
             <a href="https://www.linkedin.com/in/isaac-achenbach/" target="_blank"><img src="images/uiw-linkedin.svg" alt="linkedin" /></a>
             <a href="https://github.com/isaacach" target="_blank"><img src="images/uiw-github.svg" alt="github" /></a>
             <a href="https://alumni.codeup.com/wp-content/uploads/2023/07/Resume-1.pdf" target="_blank"><img src="images/UiwDocument.svg" alt="resume" /></a>
           </div>
-          <div class="skills">
+          <div class="skills sr ">
             <h3>Front-end skills:</h3>
             <p>HTML5, CSS3, javaScript ES6, jQuery, Bootstrap</p>
             <p>I have experience with React, Svelte, and Tailwind</p>
           </div>
-          <div class="skills">
+          <div class="skills sr ">
             <h3>Back-end skills:</h3>
             <p>Java SE, Java EE, Spring Boot, Thymeleaf, MySQL</p>
             <p>I have experience with Python, Node.js, and Express.js</p>
           </div>
-          <div class="skills">
+          <div class="skills sr ">
             <h3>Dev Tools:</h3>
             <p>Git, GitHub, IntelliJ, VS Code, Postman, and AWS Deployment</p>
           </div>
         </div>
-        <div class="column right">
-          <p>
+        <div class="column right ">
+          <p class="sl ">
             I am a full-stack web developer and a U.S. Air Force Veteran with a passion for creating beautiful,
             responsive, and secure websites.</p>
-            <p>
+            <p class="sl ">
               I spent 6 years in the United States Air Force as a C-130J aircraft maintenance technician
               in Tokyo, Japan.  Along with fixing the planes, I was also an
               aircraft data tracking supervisor where I led a team of 5 people to ensure that all of the aircraft
-              data was tracked and up to date as well as maintaining the aircraft's diagnostic computers.
+              data was tracked and up to date as well as maintaining the aircraft's diagnostic computers.  That is where I discovered my passion for
+              technology and decided to pursue a career in web development.
             </p>
-        <p>
+        <p class="sl">
             I graduated from a 5 month full-stack
             web development bootcamp at Codeup in San Antonio, Texas where I developed a deep 
             understanding for full stack development.
@@ -117,9 +118,9 @@
   
     </div>
     <div class="container-projects hl">
-      <h2><span>//</span> Projects</h2>
+      <h2 class="sl"><span>//</span> Projects</h2>
       <div class="grid-container">
-        <div class="grid-item">
+        <div class="grid-item sr">
           <div class="description">
           <p>Full-stack karaoke finder app that allows users to find karaoke by the day requested 
             within a radius and view the respective venue profile.  Full CRUD implementation allows users 
@@ -132,7 +133,7 @@
             <a href="https://karaokehub.live" target="_blank"><button>Live site</button></a>
           </div>
         </div>
-        <div class="grid-item">
+        <div class="grid-item sr">
           <div class="description">
           <p>5 day weather forecast that allows users to type in their location or 
             set a pin on the map to automatically update the forecast for that city</p>
@@ -143,7 +144,7 @@
             <a href="https://github.com/isaacach/Weather-Map" target="_blank"><button>Github repo</button></a>
           </div>
         </div>
-        <div class="grid-item">
+        <div class="grid-item sr">
           <div class="description">
           <p>Adlister with a full register and login that allows users to find listings of jobs in whatever 
             city they search for.  Users can also create, edit, and delete their own listings.</p>
@@ -155,7 +156,7 @@
             <a href="https://github.com/randy-damian-isaac-adlister/randy-damian-isaac-adlister" target="_blank"><button>Github repo</button></a>
           </div>
         </div>
-        <div class="grid-item">
+        <div class="grid-item sr">
           <div class="description">
           <p>A movie database where you can save favorites from a database into a local JSON database. 
             Users can search movies by title and genre.  Users can also edit, and delete movies from their favorites.</p>
@@ -167,7 +168,7 @@
             <a href="https://github.com/matthew-isaac-movie-project/movie-project" target="_blank"><button>Github repo</button></a>
           </div>
         </div>
-        <div class="grid-item">
+        <div class="grid-item sr">
         <div class="description">
           <p>A coffee website that allows users to filter through coffees by name or roast.  
             The website uses local storage to allow the user to temporarily add coffees to the list of coffees
@@ -183,20 +184,21 @@
       </div>
     </div>
     <div class="container-contact hl">
-      <h2><span>//</span> Contact me</h2>
+      <h2 class="sr"><span>//</span> Contact me</h2>
       <div class="contact">
-        <h3>Want to work with me or give feedback?</h3>
+        <h3 class="sl">Want to work with me or give feedback?</h3>
         <form id="contact-form">
-          <input type="hidden" name="contact_number" />
-          <input id="name" name="name" placeholder="your name" />
-          <input id="email" name="email" placeholder="your email" />
+          <input class="sr" type="hidden" name="contact_number" />
+          <input class="sl" id="name" name="name" placeholder="your name" />
+          <input class="sr" id="email" name="email" placeholder="your email" />
           <textarea
+          class="sl"
             id="subject"
             name="subject"
             placeholder="write your message"
             style="height: 200px"
           ></textarea>
-          <button>Submit</button>
+          <button class="sr">Submit</button>
         </form>
       </div>
     </div>

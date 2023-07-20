@@ -23,24 +23,25 @@ body {
   background-color: var(--bg-color2);
 }
 
+
 section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
   height: 100%;
   overflow: hidden;
 }
 
 .intro {
-  display: inline-block;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   white-space: nowrap;
   font-family: var(--heading-font);
   color: #ffff;
   font-weight: 600;
   letter-spacing: 5px;
-  transition: all .5s ease;
+  animation: bounce-appear 2s ease-in-out;
 }
 
 .intro p:first-child {
@@ -112,11 +113,15 @@ nav {
   align-items: center;
   justify-content: space-between;
   position: sticky;
-  z-index: 10;
+  position: -webkit-sticky;
+  position: -moz-sticky;
+  position: -ms-sticky;
+  position: -o-sticky;
+  z-index: 99;
   top: 0;
   height: 65px;
   color: #222831;
-  background-color: var(--bg-color2);
+  background-color: var(--font-color1);
   font-family: var(--heading-font);
   box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px, rgba(0, 0, 0, 0.05) 0px 5px 10px;
 }
@@ -190,7 +195,6 @@ nav ul:last-child li:hover {
   align-items: center;
   width: 100vw;
   height: 100vh;
-  color: var(--font-color1);
   background-color: var(--bg-color2);
   font-weight: 600;
   overflow: hidden;
@@ -201,6 +205,7 @@ nav ul:last-child li:hover {
   font-size: 4rem;
   margin-bottom:  60px;
   margin-top: 70px;
+  color: var(--font-color1);
   text-shadow:  0 1px 0px black,
   1px 0 0px black,
   1px 2px 1px black,
@@ -225,7 +230,7 @@ nav ul:last-child li:hover {
 .me p {
   z-index: 2;
   font-size: 1.4rem;
-  color: black;
+  color: var(--bg-color1);
   width: 500px;
 }
 
@@ -442,8 +447,8 @@ nav ul:last-child li:hover {
 
 .container-contact h2 {
   font-size: 4rem;
-  margin-bottom: 60px;
-  margin-top: 60px;
+  margin-bottom: 80px;
+  margin-top: 40px;
   font-family: var(--heading-font);
   color: var(--font-color1);
   text-shadow:  0 1px 0px black,
@@ -452,7 +457,6 @@ nav ul:last-child li:hover {
   2px 1px 1px black,
   2px 3px 2px black,
   3px 2px 2px black;
-
 }
 
 .container-contact h2 span {
@@ -576,6 +580,28 @@ footer {
   display: none;
 }
 
+.sl {
+  transform: translateX(200px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.sr {
+  transform: translateX(-200px);
+  opacity: 0;
+  transition: all 1s ease;
+}
+
+.slide-right {
+  transform: none;
+  opacity: 1;
+}
+
+.slide-left {
+  transform: none;
+  opacity: 1;
+}
+
 @keyframes arrow-bounce {
   10% {
     bottom: 0;
@@ -621,6 +647,43 @@ footer {
     transform: translateY(0px);
   }
   
+}
+
+@keyframes bounce-appear {
+  0% {
+    opacity: 0;
+    scale: 0;
+  }
+  30% {
+    opacity: 0;
+    scale: .1;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
 }
 @media screen and (max-width: 500px) {
 

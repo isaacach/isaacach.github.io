@@ -74,19 +74,6 @@ const optionsOne = {
   threshold: 0.5,
 };
 
-const fadeUpCallback = (entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !entry.target.classList.contains("fade-up")) {
-      entry.target.classList.add("fade-up");
-      entry.target.classList.remove("disappear");
-    }
-  })
-}
-
-const observerOne = new IntersectionObserver(fadeUpCallback, optionsOne);
-const animatedElements = document.querySelectorAll(".animate");
-animatedElements.forEach(element => observerOne.observe(element));
-
 const highlightCallback = (entries, observer) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
@@ -111,9 +98,34 @@ const highlightCallback = (entries, observer) => {
   })
 }
 
-const observerTwo = new IntersectionObserver(highlightCallback, optionsOne);
+const observerOne = new IntersectionObserver(highlightCallback, optionsOne);
 const highlightContainers =  document.querySelectorAll(".hl");
-highlightContainers.forEach(element => observerTwo.observe(element));
+highlightContainers.forEach(element => observerOne.observe(element));
+
+const slideRightCallback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("slide-right");
+    }
+  })
+}
+
+const observerTwo = new IntersectionObserver(slideRightCallback, optionsOne);
+const slideRightContainers =  document.querySelectorAll(".sr");
+slideRightContainers.forEach(element => observerTwo.observe(element));
+
+const slideLeftCallback = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("slide-left");
+    }
+  })
+}
+
+const observerThree = new IntersectionObserver(slideLeftCallback, optionsOne);
+const slideLeftContainers =  document.querySelectorAll(".sl");
+slideLeftContainers.forEach(element => observerThree.observe(element));
+
 
 
 
