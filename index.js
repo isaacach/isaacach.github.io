@@ -1,81 +1,98 @@
-let overlay = document.querySelector('.overlay');
-let container = document.querySelector('.container');
-let about = document.querySelector('.about');
-let aboutEl = document.querySelector('.container-about');
-let contact = document.querySelector('.contact');
-let contactEl = document.querySelector('.container-contact');
-let skills = document.querySelector('.skills');
-let skillsEl = document.querySelector('.container-skills');
-let projects = document.querySelector('.projects');
-let projectsEl = document.querySelector('.container-projects');
-let toTop = document.querySelector('.footer-icon-wrapper');
-let meBtn = document.querySelector('.me p span');
-let cnv = document.querySelector('#canvas');
-let logo = document.querySelector('.logo');
+let overlay = document.querySelector(".overlay");
+let container = document.querySelector(".container");
+let about = document.querySelector(".about");
+let aboutEl = document.querySelector(".container-about");
+let contact = document.querySelector(".contact");
+let contactEl = document.querySelector(".container-contact");
+let skills = document.querySelector(".skills");
+let skillsEl = document.querySelector(".container-skills");
+let projects = document.querySelector(".projects");
+let projectsEl = document.querySelector(".container-projects");
+let toTop = document.querySelector(".footer-icon-wrapper");
+let meBtn = document.querySelector(".me p span");
+let cnv = document.querySelector("#canvas");
+let logo = document.querySelector(".logo");
 
-let friesMenu = document.querySelector('.fries-menu');
-let fryOne = document.querySelector('.fries-menu-line:nth-child(1)');
-let fryTwo = document.querySelector('.fries-menu-line:nth-child(2)');
-let fryThree = document.querySelector('.fries-menu-line:nth-child(3)');
-let navMenu = document.querySelector('nav ul:last-child');
+let friesMenu = document.querySelector(".fries-menu");
+let fryOne = document.querySelector(".fries-menu-line:nth-child(1)");
+let fryTwo = document.querySelector(".fries-menu-line:nth-child(2)");
+let fryThree = document.querySelector(".fries-menu-line:nth-child(3)");
+let navMenu = document.querySelector("nav ul:last-child");
 
-friesMenu.addEventListener('click', () => {
-  fryOne.classList.toggle('rotate-1');
-  fryTwo.classList.toggle('disappear');
-  fryThree.classList.toggle('rotate-2');
-  navMenu.classList.toggle('show');
+friesMenu.addEventListener("click", () => {
+  fryOne.classList.toggle("rotate-1");
+  fryTwo.classList.toggle("disappear");
+  fryThree.classList.toggle("rotate-2");
+  navMenu.classList.toggle("show");
 });
 
-logo.addEventListener('click', () => {
+logo.addEventListener("click", () => {
   cnv.scrollIntoView({
-    behavior: "smooth"
+    behavior: "smooth",
   });
 });
 
-meBtn.addEventListener('click', () => {
+meBtn.addEventListener("click", () => {
   contactEl.scrollIntoView({
-    behavior: "smooth"
+    behavior: "smooth",
   });
 });
 
-about.addEventListener('click', () => {
+about.addEventListener("click", () => {
   aboutEl.scrollIntoView({
-    behavior: "smooth"
+    behavior: "smooth",
   });
 });
 
-toTop.addEventListener('click', () => {
+toTop.addEventListener("click", () => {
   cnv.scrollIntoView({
-    behavior: "smooth"
+    behavior: "smooth",
   });
 });
 
-contact.addEventListener('click', () => {
+contact.addEventListener("click", () => {
   contactEl.scrollIntoView({
-    behavior: "smooth"
+    behavior: "smooth",
   });
 });
 
-skills.addEventListener('click', () => {
+skills.addEventListener("click", () => {
   skillsEl.scrollIntoView({
-    behavior: "smooth"
+    behavior: "smooth",
   });
 });
 
-projects.addEventListener('click', () => {
+projects.addEventListener("click", () => {
   projectsEl.scrollIntoView({
-    behavior: "smooth"
+    behavior: "smooth",
   });
 });
-  
-const optionsOne = {
-  root: null,
-  rootMargin: "0px",
-  threshold: 0.5,
-};
+
+let opt;
+
+function checkMobile(mobile) {
+  if (mobile.matches) {
+    opt = {
+      root: null,
+      rootMargin: "65px",
+      threshold: 0.4,
+    };
+  } else {
+    opt = {
+      root: null,
+      rootMargin: "65px",
+      threshold: 0.5
+    };
+  }
+  console.log(opt);
+}
+
+let mobile = window.matchMedia("(max-width: 500px)");
+checkMobile(mobile);
+mobile.addListener(checkMobile);
 
 const highlightCallback = (entries, observer) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       if (entry.target.classList.contains("container-about")) {
         contact.classList.remove("highlight");
@@ -95,38 +112,35 @@ const highlightCallback = (entries, observer) => {
         contact.classList.remove("highlight");
       }
     }
-  })
-}
+  });
+};
 
-const observerOne = new IntersectionObserver(highlightCallback, optionsOne);
-const highlightContainers =  document.querySelectorAll(".hl");
-highlightContainers.forEach(element => observerOne.observe(element));
+const observerOne = new IntersectionObserver(highlightCallback, opt);
+const highlightContainers = document.querySelectorAll(".hl");
+highlightContainers.forEach((element) => observerOne.observe(element));
 
 const slideRightCallback = (entries, observer) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("slide-right");
     }
-  })
-}
+  });
+};
 
-const observerTwo = new IntersectionObserver(slideRightCallback, optionsOne);
-const slideRightContainers =  document.querySelectorAll(".sr");
-slideRightContainers.forEach(element => observerTwo.observe(element));
+const observerTwo = new IntersectionObserver(slideRightCallback, opt);
+const slideRightContainers = document.querySelectorAll(".sr");
+slideRightContainers.forEach((element) => observerTwo.observe(element));
 
 const slideLeftCallback = (entries, observer) => {
-  entries.forEach(entry => {
+  entries.forEach((entry) => {
     if (entry.isIntersecting) {
       entry.target.classList.add("slide-left");
     }
-  })
-}
+  });
+};
 
-const observerThree = new IntersectionObserver(slideLeftCallback, optionsOne);
-const slideLeftContainers =  document.querySelectorAll(".sl");
-slideLeftContainers.forEach(element => observerThree.observe(element));
-
-
-
+const observerThree = new IntersectionObserver(slideLeftCallback, opt);
+const slideLeftContainers = document.querySelectorAll(".sl");
+slideLeftContainers.forEach((element) => observerThree.observe(element));
 
 
