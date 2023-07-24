@@ -201,6 +201,7 @@ nav ul:last-child li:hover {
   align-items: center;
   width: calc(100vw - 65px);
   min-height: 100vh;
+  margin-left: 65px;
   border-top: #434c5a 2px solid;
   background-color: var(--bg-color2);
   font-weight: 600;
@@ -350,6 +351,7 @@ nav ul:last-child li:hover {
   align-items: center;
   width: calc(100vw - 65px);
   min-height: 100vh;
+  margin-left: 65px;
   border-top:2px solid var(--font-color1) ;
   background-color: var(--bg-color2);
 }
@@ -369,6 +371,17 @@ nav ul:last-child li:hover {
 
 .container-projects h2 span {
   color: #81ffff;
+}
+
+.continue-description {
+  margin-top: 50px;
+  width: 70%;
+  color: var(--font-color2);
+  font-size: 1.4rem;
+}
+
+.continue-description a {
+  color: var(--accent-color1);
 }
 
 .grid-container {
@@ -453,6 +466,7 @@ nav ul:last-child li:hover {
   align-items: center;
   min-height: 100vh;
   width: calc(100vw - 65px);
+  margin-left: 65px;
   border-top: #434c5a 2px solid;
   background-color: var(--bg-color2);
 }
@@ -856,6 +870,11 @@ footer {
 
   .container-projects h2 {
     font-size: 3rem;
+  }
+
+  .continue-description {
+    width: 90%;
+    font-size: .7rem;
   }
 
   .grid-container {
